@@ -4,11 +4,11 @@
     Author     : ioan.tinca
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
+<!--<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/onlinestore.css">
@@ -38,7 +38,7 @@
                 </a>
 
                 <img src="#" id="logoText" alt="online store">
-            </div>
+            </div>-->
 
             <div id="categoryLeftColumn">
                 <div class="categoryButton" id="selectedCategory">
@@ -132,10 +132,10 @@
                 </table>
             </div>
 
-            <div id="footer">
+<!--            <div id="footer">
                 <hr>
                 <p id="footerText">[ footer text ]</p>
             </div>
         </div>
     </body>
-</html>
+</html>-->
