@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : index
     Created on : Dec 8, 2014, 11:24:44 AM
@@ -6,63 +8,24 @@
 
 <%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <!DOCTYPE html>
-<!--<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/onlinestore.css">
-        <title>Online Store</title>
-    </head>
-    <body>
-        <div id="main">
-            <div id="header">
-                <div id="widgetBar">
+<sql:query var="categories" dataSource="jdbc/onlinestore">
+    SELECT * FROM category
+</sql:query>
+<div id="indexLeftColumn">
+    <div id="welcomeText">
+        <p>[ welcome text ]</p>
+    </div>
+</div>
+<div id="indexRightColumn">
+    <c:forEach var="category" items="${categories.rows}">
+        <div class="categoryBox">
+            <a href="category?${category.id}">
 
-                    <div class="headerWidget">
-                        [ language toggle ]
-                    </div>
+                <span class="categoryLabelText">${category.name}</span>
 
-                    <div class="headerWidget">
-                        [ shopping cart widget ]
-                    </div>
-
-                    <a href="#">
-                        <img src="#" id="logo" alt="Online Store logo">
-                    </a>
-
-                    <img src="#" id="logoText" alt="Online Store">
-                </div>
-            </div>-->
-            <div id="indexLeftColumn">
-                <div id="welcomeText">
-                    <p>[ welcome text ]</p>
-                </div>
-            </div>
-            <div id="indexRightColumn">
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">dairy</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">meats</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">bakery</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">fruit & veg</span>
-                    </a>
-                </div>
-            </div>
-<!--            <div id="footer">
-                <hr>
-                <p id="footerText">[ footer text ]</p>
-            </div>            
+                <img src="${initParam.categoryImagePath}${category.name}.jpg"
+                     alt="${category.name}">
+            </a>
         </div>
-    </body>
-</html>-->
+    </c:forEach>
+</div>
