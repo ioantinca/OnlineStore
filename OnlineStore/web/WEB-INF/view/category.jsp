@@ -10,7 +10,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
-<sql:query var="categories" dataSource="jdbc/onlinestore">
+<%--<sql:query var="categories" dataSource="jdbc/onlinestore">
     select * from category
 </sql:query>
 <sql:query var="selectedCategory" dataSource="jdbc/onlinestore">
@@ -20,10 +20,10 @@
 <sql:query var="categoryProducts" dataSource="jdbc/onlinestore">
     SELECT * FROM product WHERE category_id = ?
     <sql:param value="${pageContext.request.queryString}"/>
-</sql:query>
+</sql:query>--%>
 
 <div id="categoryLeftColumn">
-    <c:forEach var="category" items="${categories.rows}">
+    <c:forEach var="category" items="${categories}">
         <c:choose>
             <c:when test="${category.id == pageContext.request.queryString}">
                 <div class="categoryButton" id="selectedCategory">
@@ -44,10 +44,10 @@
 </div>
 
 <div id="categoryRightColumn">
-    <p id="categoryTitle">${selectedCategory.rows[0].name}</p>
+    <p id="categoryTitle">${selectedCategory.name}</p>
 
     <table id="productTable">
-        <c:forEach var="product" items="${categoryProducts.rows}" varStatus="iter">
+        <c:forEach var="product" items="${categoryProducts}" varStatus="iter">
 
             <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
                 <td>

@@ -8,16 +8,16 @@
 
 <%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <!DOCTYPE html>
-<sql:query var="categories" dataSource="jdbc/onlinestore">
+<%--<sql:query var="categories" dataSource="jdbc/onlinestore">
     SELECT * FROM category
-</sql:query>
+</sql:query>--%>
 <div id="indexLeftColumn">
     <div id="welcomeText">
         <p>[ welcome text ]</p>
     </div>
 </div>
 <div id="indexRightColumn">
-    <c:forEach var="category" items="${categories.rows}">
+    <c:forEach var="category" items="${categories}">
         <div class="categoryBox">
             <a href="category?${category.id}">
 
