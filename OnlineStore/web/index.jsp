@@ -19,7 +19,7 @@
 <div id="indexRightColumn">
     <c:forEach var="category" items="${categories}">
         <div class="categoryBox">
-            <a href="category?${category.id}">
+            <a href="<c:url value='category?${category.id}'/>">
 
                 <span class="categoryLabelText">${category.name}</span>
 
