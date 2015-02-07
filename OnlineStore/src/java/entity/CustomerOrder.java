@@ -45,18 +45,14 @@ public class CustomerOrder implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
-    @NotNull
     @Column(name = "amoun")
     private BigDecimal amoun;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "date_created")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "confirmation_number")
     private int confirmationNumber;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")

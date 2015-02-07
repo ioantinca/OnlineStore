@@ -18,11 +18,9 @@ import javax.validation.constraints.NotNull;
 @Embeddable
 public class OrderedProductPK implements Serializable {
     @Basic(optional = false)
-    @NotNull
     @Column(name = "customer_order_id")
     private int customerOrderId;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "product_id")
     private int productId;
 

@@ -39,8 +39,8 @@ public class Category implements Serializable {
     @Column(name = "id")
     private Short id;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+//    @NotNull
+//    @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId")

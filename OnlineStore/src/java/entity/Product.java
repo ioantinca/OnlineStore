@@ -48,20 +48,14 @@ public class Product implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
-    @NotNull
     @Column(name = "price")
     private BigDecimal price;
-    @Size(max = 255)
     @Column(name = "description")
     private String description;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "last_update")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastUpdate;

@@ -33,7 +33,6 @@ public class OrderedProduct implements Serializable {
     @EmbeddedId
     protected OrderedProductPK orderedProductPK;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "quantity")
     private int quantity;
     @JoinColumn(name = "customer_order_id", referencedColumnName = "id", insertable = false, updatable = false)
