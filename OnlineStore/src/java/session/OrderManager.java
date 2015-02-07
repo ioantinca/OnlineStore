@@ -81,7 +81,7 @@ public class OrderManager {
     private CustomerOrder addOrder(Customer customer, ShoppingCart cart) {
         // set up customer order
         CustomerOrder order = new CustomerOrder();
-        order.setCustomerId(customer);
+        order.setCustomer(customer);
         order.setAmoun(BigDecimal.valueOf(cart.getTotal()));
 
         // create confirmation number

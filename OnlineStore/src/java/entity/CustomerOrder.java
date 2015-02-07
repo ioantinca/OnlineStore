@@ -57,7 +57,7 @@ public class CustomerOrder implements Serializable {
     private int confirmationNumber;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Customer customerId;
+    private Customer customer;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerOrder")
     private Collection<OrderedProduct> orderedProductCollection;
 
@@ -107,12 +107,12 @@ public class CustomerOrder implements Serializable {
         this.confirmationNumber = confirmationNumber;
     }
 
-    public Customer getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Collection<OrderedProduct> getOrderedProductCollection() {
