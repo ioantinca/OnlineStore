@@ -54,7 +54,7 @@
 
             <tr class="lightBlue">
                 <td colspan="2" id="totalCellLeft"><strong>total:</strong></td>
-                <td id="totalCellRight">&euro; ${orderRecord.amount}</td>
+                <td id="totalCellRight">&euro; ${orderRecord.amoun}</td>
             </tr>
 
             <tr class="lightBlue"><td colspan="3" style="padding: 0 20px"><hr></td></tr>
@@ -79,7 +79,7 @@
                 <td colspan="3" class="lightBlue">
                     ${customer.name}
                     <br>
-                    ${customer.address}
+                    ${customer.adress}
                     <br>
                     Prague ${customer.cityRegion}
                     <br>
