@@ -36,7 +36,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class OrderManager {
-    
+
     @PersistenceContext(unitName = "OnlineStorePU")
     private EntityManager em;
     @Resource
@@ -94,8 +94,8 @@ public class OrderManager {
     }
 
     private void addOrderedItems(CustomerOrder order, ShoppingCart cart) {
-         em.flush();
-        
+        em.flush();
+
         List<ShoppingCartItem> items = cart.getItems();
 
         // iterate through shopping cart and create OrderedProducts
@@ -113,9 +113,40 @@ public class OrderManager {
 
             // set quantity
             orderedItem.setQuantity(scItem.getQuantity());
-            
+
             em.persist(orderedItem);
         }
     }
-    
+
+    public Map getOrderDetails(int orderId) {
+
+        Map orderMap = new HashMap();
+
+        // get order
+        CustomerOrder order = customerOrderFacade.find(orderId);
+
+        // get customer
+        Customer customer = order.getCustomer();
+
+        // get all ordered products
+        List<OrderedProduct> orderedProducts = orderedProductFacade.findByOrderId(orderId);
+
+        // get product details for ordered items
+        List<Product> products = new ArrayList<Product>();
+
+        for (OrderedProduct op : orderedProducts) {
+
+            Product p = (Product) productFacade.find(op.getOrderedProductPK().getProductId());
+            products.add(p);
+        }
+
+        // add each item to orderMap
+        orderMap.put("orderRecord", order);
+        orderMap.put("customer", customer);
+        orderMap.put("orderedProducts", orderedProducts);
+        orderMap.put("products", products);
+
+        return orderMap;
+    }
+
 }
