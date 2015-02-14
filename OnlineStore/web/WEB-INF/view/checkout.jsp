@@ -4,7 +4,10 @@
     Author     : ioan.tinca
 --%>
 
-
+<%-- Set session-scoped variable to track the view user is coming from.
+     This is used by the language mechanism in the Controller so that
+     users view the same page when switching between English and Czech. --%>
+<c:set var='view' value='/checkout' scope='session' />
 <script src="js/jquery.validate.js" type="text/javascript"></script>
 
 <script type="text/javascript">
